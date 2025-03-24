@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Pharmacy AI Assistant</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+ <link rel="stylesheet" href="ask ai.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ask AI Pharmacist</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="ask ai.css">
+</head>
+
+<body class="bg-gray-100">
+  <div class="container">
+    <header class="premium-header">
+      <div class="premium-logo-section">
+        <div class="premium-logo">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="48" fill="#1a73e8" />
+            <circle cx="50" cy="50" r="38" fill="white" />
+            <rect x="47" y="20" width="6" height="60" rx="2" fill="#1a73e8" />
+            <rect x="20" y="47" width="60" height="6" rx="2" fill="#1a73e8" />
+          </svg>
+        </div>
+        <h1 class="HealthGuard">E-Pharma</h1>
+      </div>
+      <div class="premium-header-content">
+        <nav class="premium-nav-links">
+          <a href="#">Services</a>
+          <a href="#">Locations</a>
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="benefits">
+      <h2>How Our AI Can Help You</h2>
+      <p>PharmAssist AI is designed to support your healthcare journey with personalized assistance:</p>
+      <ul>
+        <li>Provide medication information and dosage guidance</li>
+        <li>Answer questions about drug interactions and side effects</li>
+        <li>Send medication reminders and refill notifications</li>
+        <li>Help locate nearby pharmacies and check medicine availability</li>
+        <li>Assist with understanding prescription instructions</li>
+        <li>Provide general health information and wellness tips</li>
+        <li>Connect you with a human pharmacist when needed</li>
+      </ul>
+      <p><strong>Note:</strong> PharmAssist AI is for informational purposes only and does not replace professional medical advice. Always consult with your healthcare provider for medical decisions.</p>
+    </section>
+
+    <section class="chat-container">
+      <div class="chat-header">
+        <h3>Chat with PharmAssist AI</h3>
+      </div>
+      <div class="chat-messages" id="chat-messages">
+        <div class="message bot-message">
+          Hello! I'm PharmAssist AI. How can I help you with your medication or health questions today?
+        </div>
+        <div class="clearfix"></div>
+        <div class="message user-message">
+          I need information about my blood pressure medication.
+        </div>
+        <div class="clearfix"></div>
+        <div class="message bot-message">
+          I'd be happy to help with information about your blood pressure medication. Could you please tell me the name of the medication you're taking?
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="chat-input">
+        <input type="text" placeholder="Type your message here..." id="user-input">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </section>
+  </div>
+<footer>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li>Home</li>
+                        <li>Services</li>
+                        <li>Locations</li>
+                        <li>About Us</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Customer Support</h4>
+                    <ul>
+                        <li>Help Center</li>
+                        <li>Contact Us</li>
+                        <li>FAQ</li>
+                        <li>Feedback</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li>Privacy Policy</li>
+                        <li>Terms of Service</li>
+                        <li>Compliance</li>
+                        <li>Accessibility</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect With Us</h4>
+                    <div>
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-linkedin"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+            </footer>
+  <div class="container">
+    <header class="premium-header">
+      <div class="premium-logo-section">
+        <div class="premium-logo">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="48" fill="#1a73e8" />
+            <circle cx="50" cy="50" r="38" fill="white" />
+            <rect x="47" y="20" width="6" height="60" rx="2" fill="#1a73e8" />
+            <rect x="20" y="47" width="60" height="6" rx="2" fill="#1a73e8" />
+          </svg>
+        </div>
+        <h1 class="HealthGuard">HealthGuard Elite</h1>
+      </div>
+      <div class="premium-header-content">
+        <nav class="premium-nav-links">
+          <a href="#">Services</a>
+          <a href="#">Locations</a>
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="ai-assistant">
+      <h2>💬 Ask Our AI Pharmacist</h2>
+      <div class="chat-container">
+        <div class="chat-messages">
+          <div class="message ai-message">
+            Hello! I'm MediBot, your AI pharmacist assistant. How can I help you today? You can ask me about medicines, side effects, or general health advice.
+          </div>
+        </div>
+        <div class="chat-input">
+          <input type="text" placeholder="Ask about any medicine or health concern...">
+          <button class="btn">Send</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li>Home</li>
+          <li>Services</li>
+          <li>Locations</li>
+          <li>About Us</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Customer Support</h4>
+        <ul>
+          <li>Help Center</li>
+          <li>Contact Us</li>
+          <li>FAQ</li>
+          <li>Feedback</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li>Privacy Policy</li>
+          <li>Terms of Service</li>
+          <li>Compliance</li>
+          <li>Accessibility</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect With Us</h4>
+        <div>
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-linkedin"></i>
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const userInput = document.getElementById('user-input');
+      const chatMessages = document.getElementById('chat-messages');
+      
+      if (userInput.value.trim() === '') return;
+      
+      // Create user message
+      const userMessage = document.createElement('div');
+      userMessage.className = 'message user-message';
+      userMessage.textContent = userInput.value;
+      chatMessages.appendChild(userMessage);
+      
+      const clearfix = document.createElement('div');
+      clearfix.className = 'clearfix';
+      chatMessages.appendChild(clearfix);
+      
+      // Simulate AI response (in a real application, this would connect to your AI backend)
+      setTimeout(() => {
+        const botMessage = document.createElement('div');
+        botMessage.className = 'message bot-message';
+        botMessage.textContent = "I understand you're asking about: " + userInput.value + ". In a fully implemented system, I would provide relevant information about your query or connect you with a pharmacist if needed.";
+        chatMessages.appendChild(botMessage);
+        
+        const newClearfix = document.createElement('div');
+        newClearfix.className = 'clearfix';
+        chatMessages.appendChild(newClearfix);
+        
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 1000);
+      
+      userInput.value = '';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    // Allow Enter key to send messages
+    document.getElementById('user-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+  </script>
+</body>
+</html>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const chatInput = document.querySelector('.chat-input input');
+      const sendButton = document.querySelector('.chat-input .btn');
+      const chatMessages = document.querySelector('.chat-messages');
+
+      sendButton.addEventListener('click', async function () {
+        const userMessage = chatInput.value.trim();
+        if (userMessage) {
+          // Add user message to chat
+          const userMessageElement = document.createElement('div');
+          userMessageElement.classList.add('message', 'user-message');
+          userMessageElement.textContent = userMessage;
+          chatMessages.appendChild(userMessageElement);
+
+          // Clear input
+          chatInput.value = '';
+
+          // Send message to backend
+          try {
+            const response = await fetch('/prescription', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`, // Include JWT token
+              },
+              body: JSON.stringify({ patient_id: 1, symptoms: userMessage }), // Replace with actual patient ID
+            });
+            const data = await response.json();
+
+            // Add AI response to chat
+            const aiMessageElement = document.createElement('div');
+            aiMessageElement.classList.add('message', 'ai-message');
+            aiMessageElement.textContent = data.ai_notes; // Display AI notes
+            chatMessages.appendChild(aiMessageElement);
+          } catch (error) {
+            console.error('Error:', error);
+            const aiMessageElement = document.createElement('div');
+            aiMessageElement.classList.add('message', 'ai-message');
+            aiMessageElement.textContent = 'Sorry, something went wrong. Please try again.';
+            chatMessages.appendChild(aiMessageElement);
+          }
+
+          // Scroll to bottom
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

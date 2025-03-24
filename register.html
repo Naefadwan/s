@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-pharma - Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+   <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="premium-logo-section">
+                <div class="premium-logo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="48" fill="#1a73e8" />
+                        <circle cx="50" cy="50" r="38" fill="white" />
+                        <rect x="47" y="20" width="6" height="60" rx="2" fill="#1a73e8" />
+                        <rect x="20" y="47" width="60" height="6" rx="2" fill="#1a73e8" />
+                    </svg>
+                </div>
+                <h1>E-Pharma</h1>
+            </div>
+        </header>
+        
+        <main>
+            <div class="auth-container">
+                <div class="auth-image">
+                    <h2>Welcome to our Pharmacy</h2>
+                    <p>Create an account or log in to access your personal health dashboard and enjoy exclusive benefits.</p>
+                    
+                    <div class="auth-features">
+                        <div class="auth-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Manage your prescriptions online</span>
+                        </div>
+                        <div class="auth-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Quick access to medication history</span>
+                        </div>
+                        <div class="auth-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Exclusive discounts and offers</span>
+                        </div>
+                        <div class="auth-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Setup medication reminders</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="registration-form-container">
+                    <div class="step-indicator">
+                        <span class="active">1</span>
+                        <span>2</span>
+                        <span>3</span>
+                    </div>
+                    
+                    <form id="registrationForm">
+                        <!-- Step 1: Personal Information -->
+                        <div class="step active" id="step1">
+                            <h2>Step 1: Personal Information</h2>
+                            
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="middleName">Middle Name</label>
+                                <input type="text" id="middleName">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nationalNumber">National Number *</label>
+                                <input type="text" id="nationalNumber" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="gender">Gender *</label>
+                                <select id="gender" required>
+                                    <option value="">Select gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                    <option value="prefer-not-to-say">Prefer not to say</option>
+                                </select>
+                            </div>
+                            
+                            <div class="button-group">
+                                <div></div> <!-- Empty div for spacing -->
+                                <button type="button" onclick="nextStep(1)">Next</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2: Health Information -->
+                        <div class="step" id="step2">
+                            <h2>Step 2: Health Information</h2>
+                            
+                            <div class="form-group">
+                                <label>Chronic Diseases</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="diseases" value="diabetes"> Diabetes</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="diseases" value="hypertension"> Hypertension</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="diseases" value="asthma"> Asthma</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="diseases" value="heart-disease"> Heart Disease</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="diseases" value="other"> Other</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Allergies</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="allergies" value="peanuts"> Peanuts</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="allergies" value="shellfish"> Shellfish</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="allergies" value="dairy"> Dairy</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="allergies" value="penicillin"> Penicillin</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="allergies" value="other"> Other</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="healthNotes">Additional Health Information</label>
+                                <textarea id="healthNotes" placeholder="Please share any other health concerns or information here..."></textarea>
+                            </div>
+                            
+                            <div class="button-group">
+                                <button type="button" class="previous" onclick="prevStep(2)">Previous</button>
+                                <button type="button" onclick="nextStep(2)">Next</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3: Account Information -->
+                        <div class="step" id="step3">
+                            <h2>Step 3: Account Information</h2>
+                            
+                            <div class="form-group">
+                                <label for="username">Username *</label>
+                                <input type="text" id="username" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="reg-password">Password *</label>
+                                <div class="input-group">
+                                    <input type="password" id="reg-password" placeholder="Create a password" required>
+                                    <i id="toggleRegPassword" class="fa-solid fa-eye-slash"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm Password *</label>
+                                <div class="input-group">
+                                    <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                                    <i id="toggleConfirmPassword" class="fa-solid fa-eye-slash"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="securityQuestion">Security Question *</label>
+                                <select id="securityQuestion" required>
+                                    <option value="">Select a security question</option>
+                                    <option value="pet">What was your first pet's name?</option>
+                                    <option value="school">What was the name of your first school?</option>
+                                    <option value="city">What city were you born in?</option>
+                                    <option value="mother">What is your mother's maiden name?</option>
+                                    <option value="car">What was your first car?</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="securityAnswer">Security Answer *</label>
+                                <input type="text" id="securityAnswer" required>
+                            </div>
+                            
+                            <div class="button-group">
+                                <button type="button" class="previous" onclick="prevStep(3)">Previous</button>
+                                <button type="submit">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        // Toggle password visibility
+        document.getElementById('toggleRegPassword').addEventListener('click', function() {
+            const passwordField = document.getElementById('reg-password');
+            const icon = this;
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            } else {
+                passwordField.type = 'password';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            }
+        });
+        
+        document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
+            const passwordField = document.getElementById('confirm-password');
+            const icon = this;
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            } else {
+                passwordField.type = 'password';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            }
+        });
+
+        function nextStep(currentStep) {
+            // Simple validation
+            let canProceed = true;
+            
+            // Check required fields for current step
+            if (currentStep === 1) {
+                const requiredFields = ['firstName', 'lastName', 'nationalNumber', 'phone', 'gender'];
+                requiredFields.forEach(field => {
+                    if (!document.getElementById(field).value) {
+                        alert(`Please fill in ${field.replace(/([A-Z])/g, ' $1').toLowerCase()}`);
+                        canProceed = false;
+                    }
+                });
+            }
+            
+            if (canProceed) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                document.getElementById(`step${currentStep + 1}`).classList.add('active');
+                
+                // Update step indicator
+                document.querySelectorAll('.step-indicator span')[currentStep].classList.add('active');
+            }
+        }
+        
+        function prevStep(currentStep) {
+            document.getElementById(`step${currentStep}`).classList.remove('active');
+            document.getElementById(`step${currentStep - 1}`).classList.add('active');
+            
+            // Update step indicator
+            document.querySelectorAll('.step-indicator span')[currentStep - 1].classList.remove('active');
+        }
+        
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate password matching
+            const password = document.getElementById('reg-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            // Here you would typically send the form data to your server
+            alert('Registration successful!');
+            
+            // For demonstration purposes only
+            console.log('Form submitted successfully');
+        });
+    </script>
+</body>
+</html>

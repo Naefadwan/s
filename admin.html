@@ -1,0 +1,41 @@
+<body>
+    <h1>Admin Dashboard</h1>
+    <h2>Orders</h2>
+    <div id="orders"></div>
+  
+    <h2>Prescriptions</h2>
+    <div id="prescriptions"></div>
+  
+    <script>
+      async function loadAdminData() {
+        const orders = await (await fetch('/api/admin/orders')).json();
+        const pres = await (await fetch('/api/admin/prescriptions')).json();
+  
+        document.getElementById('orders').innerHTML = `
+          <table border="1">
+            <tr><th>ID</th><th>User</th><th>Total</th><th>Status</th><th>Date</th></tr>
+            ${orders.map(o => `
+              <tr>
+                <td>${o.id}</td><td>${o.name}</td><td>$${o.total}</td>
+                <td>${o.status}</td><td>${new Date(o.created_at).toLocaleString()}</td>
+              </tr>`).join('')}
+          </table>
+        `;
+  
+        document.getElementById('prescriptions').innerHTML = `
+          <table border="1">
+            <tr><th>ID</th><th>Patient</th><th>Medicines</th><th>Dosage</th><th>AI Notes</th><th>Date</th></tr>
+            ${pres.map(p => `
+              <tr>
+                <td>${p.id}</td><td>${p.patient}</td><td>${p.medicines}</td>
+                <td>${p.dosage}</td><td>${p.ai_notes}</td>
+                <td>${new Date(p.created_at).toLocaleString()}</td>
+              </tr>`).join('')}
+          </table>
+        `;
+      }
+  
+      loadAdminData();
+    </script>
+  </body>
+</html>  

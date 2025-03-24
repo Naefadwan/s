@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart - HealthGuard Elite</title>
+  <link rel="stylesheet" href="home2.css">
+  <script src="cart.js"></script>
+</head>
+<body>
+  <div class="premium-container">
+    <header class="premium-header">
+      <div class="premium-logo-section">
+        <div class="premium-logo">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="48" fill="#1a73e8" />
+            <circle cx="50" cy="50" r="38" fill="white" />
+            <rect x="47" y="20" width="6" height="60" rx="2" fill="#1a73e8" />
+            <rect x="20" y="47" width="60" height="6" rx="2" fill="#1a73e8" />
+          </svg>
+        </div>
+        <h1 class="text-white text-xl font-bold">HealthGuard Elite</h1>
+      </div>
+    </header>
+
+    <main class="p-8">
+      <h2 class="text-2xl font-bold mb-6">🛒 Your Shopping Cart</h2>
+      <div id="cart-container"></div>
+      <div class="mt-6">
+        <button onclick="submitCheckout()" class="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700">
+          Proceed to Checkout
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function renderCartPage() {
+      const cartContainer = document.getElementById('cart-container');
+      if (!cart.length) {
+        cartContainer.innerHTML = `<p>Your cart is empty.</p>`;
+        return;
+      }
+
+      let total = 0;
+      cartContainer.innerHTML = `
+        <table class="w-full border border-gray-300 text-left">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="p-2">Product</th>
+              <th class="p-2">Price</th>
+              <th class="p-2">Quantity</th>
+              <th class="p-2">Total</th>
+              <th class="p-2">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${cart.map(item => {
+              const itemTotal = item.price * item.quantity;
+              total += itemTotal;
+              return `
+                <tr>
+                  <td class="p-2">${item.name}</td>
+                  <td class="p-2">$${item.price.toFixed(2)}</td>
+                  <td class="p-2">
+                    <button onclick="changeQuantity(${item.id}, -1)">−</button>
+                    ${item.quantity}
+                    <button onclick="changeQuantity(${item.id}, 1)">+</button>
+                  </td>
+                  <td class="p-2">$${itemTotal.toFixed(2)}</td>
+                  <td class="p-2">
+                    <button onclick="removeFromCart(${item.id})" class="text-red-600">Remove</button>
+                  </td>
+                </tr>
+              `;
+            }).join('')}
+            <tr class="font-bold bg-gray-100">
+              <td colspan="3" class="p-2 text-right">Total:</td>
+              <td class="p-2">$${total.toFixed(2)}</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      `;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCartPage();
+    });
+  </script>
+</body>
+</html>

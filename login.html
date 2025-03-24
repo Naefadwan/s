@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Pharmacy - Login/Register</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> -->
+
+    
+</head>
+<body>
+    <script type="module">
+        import { login } from '/js/auth.js';
+        import { ERROR_MESSAGES } from '/js/config.js';
+    
+        const form = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+        const spinner = document.getElementById('spinner');
+        const buttonText = document.getElementById('buttonText');
+    
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          
+          buttonText.classList.add('hidden');
+          spinner.classList.remove('hidden');
+          errorMessage.classList.add('hidden');
+    
+          try {
+            await login(username.value, password.value);
+            window.location.href = '/ask-ai.html';
+          } catch (error) {
+            errorMessage.textContent = error.message;
+            errorMessage.classList.remove('hidden');
+          } finally {
+            buttonText.classList.remove('hidden');
+            spinner.classList.add('hidden');
+          }
+        });
+      </script>
+    <div class="container">
+        <header>
+            <div class="premium-logo-section">
+                <div class="premium-logo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="48" fill="#1a73e8" />
+                        <circle cx="50" cy="50" r="38" fill="white" />
+                        <rect x="47" y="20" width="6" height="60" rx="2" fill="#1a73e8" />
+                        <rect x="20" y="47" width="60" height="6" rx="2" fill="#1a73e8" />
+                    </svg>
+                </div>
+                <h1>E-Pharma</h1>
+            </div>
+            
+        </header>
+        
+        <main>
+            <div class="auth-container">
+                <div class="auth-image">
+                    <h2>Welcome to our Pharmacy</h2>
+                    <p>Create an account or log in to access your personal health dashboard and enjoy exclusive benefits.</p>
+                    
+                    <div class="auth-features">
+                        <div class="auth-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Manage your prescriptions online</span>
+                        </div>
+                        <div class="auth-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Quick access to medication history</span>
+                        </div>
+                        <div class="auth-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Exclusive discounts and offers</span>
+                        </div>
+                        <div class="auth-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Setup medication reminders</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="auth-forms">
+                    <div class="tabs">
+                        <div class="tab active" id="login-tab">Login</div>
+                        <!-- <div class="tab" id="register-tab">Register</div> -->
+                    </div>
+                    
+                    <div class="tab-content active" id="login-content">
+                        <form>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <div class="input-group">
+                                    <input type="password" id="password" placeholder="Enter your password" required>
+                                    <i id="togglePassword" class="fa-solid fa-eye-slash"></i>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="form-action">
+                                <div class="remember-me">
+                                    <input type="checkbox" id="remember">
+                                    <label for="remember">Remember me</label>
+                                </div>
+                                <a href="#" class="forgot-password">Forgot Password?</a>
+                            </div>
+                            <button type="submit" class="btn-submit">Login</button>
+                        </form>
+                        
+                        <div class="social-login">
+                            <p>Or login with</p>
+                            <div class="social-buttons">
+                                <button class="social-btn">
+                                    <span>Google</span>
+                                </button>
+                                <button class="social-btn">
+                                    <span>Facebook</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="tab-content" id="register-content">
+                        <form>
+                            <div class="form-group">
+                                <label for="full-name">Full Name</label>
+                                <input type="text" id="full-name" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-email">Email</label>
+                                <input type="email" id="reg-email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                            </div>
+                            <label for="chronic-diseases">Chronic Diseases</label><br>
+                            <div class="dropdown">
+                                <button>Select Chronic Diseases </button>
+                                <div class="dropdown-content" id="chronic-diseases">
+                                    <label><input type="checkbox" name="chronic-diseases" value="diabetes"> Diabetes</label>
+                                    <label><input type="checkbox" name="chronic-diseases" value="hypertension"> Hypertension</label>
+                                    <label><input type="checkbox" name="chronic-diseases" value="asthma"> Asthma</label>
+                                    <label><input type="checkbox" name="chronic-diseases" value="copd"> COPD</label>
+                                    <label><input type="checkbox" name="chronic-diseases" value="heart-disease"> Heart Disease</label>
+                                    <label><input type="checkbox" name="chronic-diseases" value="arthritis"> Arthritis</label>
+                                    <label><input type="checkbox" name="chronic-diseases" value="epilepsy"> Epilepsy</label>
+                                    <label><input type="checkbox" name="chronic-diseases" value="thyroid"> Thyroid Disorder</label>
+                                    <label><input type="checkbox" name="chronic-diseases" value="cancer"> Cancer</label>
+                                    <label><input type="checkbox" name="chronic-diseases" value="kidney-disease"> Kidney Disease</label>
+                                    <label><input type="checkbox" name="chronic-diseases" value="liver-disease"> Liver Disease</label>
+                                    <label><input type="checkbox" name="chronic-diseases" value="none"> None</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="allergies">Allergies</label>
+                                <div class="dropdown">
+                                    <button>Select Allergies </button>
+                                    <div class="dropdown-content" id="allergies">
+                                        <label><input type="checkbox" name="allergies" value="penicillin"> Penicillin</label>
+                                        <label><input type="checkbox" name="allergies" value="aspirin"> Aspirin</label>
+                                        <label><input type="checkbox" name="allergies" value="sulfa"> Sulfa Drugs</label>
+                                        <label><input type="checkbox" name="allergies" value="latex"> Latex</label>
+                                        <label><input type="checkbox" name="allergies" value="ibuprofen"> Ibuprofen</label>
+                                        <label><input type="checkbox" name="allergies" value="shellfish"> Shellfish</label>
+                                        <label><input type="checkbox" name="allergies" value="peanuts"> Peanuts</label>
+                                        <label><input type="checkbox" name="allergies" value="eggs"> Eggs</label>
+                                        <label><input type="checkbox" name="allergies" value="milk"> Milk</label>
+                                        <label><input type="checkbox" name="allergies" value="soy"> Soy</label>
+                                        <label><input type="checkbox" name="allergies" value="wheat"> Wheat</label>
+                                        <label><input type="checkbox" name="allergies" value="fish"> Fish</label>
+                                        <label><input type="checkbox" name="allergies" value="none"> None</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-password">Password</label>
+                                <div class="input-group">
+                                    <input type="password" id="reg-password" placeholder="Create a password" required>
+                                    <i id="toggleRegPassword" class="fa-solid fa-eye-slash"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm Password</label>
+                                <div class="input-group">
+                                    <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                                    <i id="toggleConfirmPassword" class="fa-solid fa-eye-slash"></i>
+                                </div>
+                            </div>
+                            <div class="remember-me">
+                                <input type="checkbox" id="terms">
+                                <label for="terms">I agree to the Terms and Conditions</label>
+                            </div>
+                            <button type="submit" class="btn-submit">Create Account</button>
+                        </form>
+                    </div> -->
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Pharmacy Name. All Rights Reserved.</p>
+    </footer>
+    
+    <script>
+        // Simple tab switching functionality
+        const loginTab = document.getElementById('login-tab');
+        const registerTab = document.getElementById('register-tab');
+        const loginContent = document.getElementById('login-content');
+        const registerContent = document.getElementById('register-content');
+        
+        loginTab.addEventListener('click', function() {
+            loginTab.classList.add('active');
+            registerTab.classList.remove('active');
+            loginContent.classList.add('active');
+            registerContent.classList.remove('active');
+        });
+        
+        registerTab.addEventListener('click', function() {
+            registerTab.classList.add('active');
+            loginTab.classList.remove('active');
+            registerContent.classList.add('active');
+            loginContent.classList.remove('active');
+        });
+    </script>
+    <script src="login.js"></script>
+</body>
+</html>
